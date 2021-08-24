@@ -1,0 +1,96 @@
+{% extends "base.html" %}
+{% block title %}Order List{% endblock %}
+{% block content %}
+<h1>ORDERS</h1>
+
+<style>
+    td {
+        width: 150px;
+        text-align: right;
+        border: 1px solid black;
+        padding: 5px;
+    }
+
+    th {
+        width: 150px;
+        text-align: right;
+        border: 1px solid black;
+        padding: 5px;
+    }
+</style>
+<table>
+    <thead>
+        <tr>
+            <!--<th>Index</th>-->
+            <th>Region</th>
+            <th>Country</th>
+            <th>Item Type</th>
+            <th>Sales Channel</th>
+            <th>Order Priority</th>
+            <th>Order Date</th>
+            <th>Order ID</th>
+            <th>Ship Date</th>
+            <th>Units Sold</th>
+            <th>Unit Price</th>
+            <th>Unit Cost</th>
+            <th>Total Revenue</th>
+            <th>Total Cost</th>
+            <th>Total Profit</th>
+            <th>NRIC</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for row in data.items %}
+        <tr>
+            <!--<th scope="row">{{ loop.index }}</th>-->
+            <td>{{row.region}}</td>
+            <td>{{row.country}}</td>
+            <td>{{row.itemType}}</td>
+            <td>{{row.salesChannel}}</td>
+            <td>{{row.orderPriority}}</td>
+            <td>{{row.orderDate}}</td>
+            <td>{{row.orderId}}</td>
+            <td>{{row.shipDate}}</td>
+            <td>{{row.unitsSold}}</td>
+            <td>{{row.unitPrice}}</td>
+            <td>{{row.unitCost}}</td>
+            <td>{{row.totalRevenue}}</td>
+            <td>{{row.totalCost}}</td>
+            <td>{{row.totalProfit}}</td>
+            <td>{{row.nric}}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<!-- Pagination Links-->
+<div class="text-right">
+    <a href="{{ url_for('display', page=data.prev_num) }}" class="btn btn-outline-dark 
+   {% if data.page == 1 %}disabled{% endif %}">
+        &laquo;
+    </a>
+    <!-- Loop through the number of pages to display a link for each-->
+    {% for page_num in data.iter_pages(left_edge=1, right_edge=1, left_current=1, right_current=2) %}
+    {% if page_num %}
+    <!-- Check for the active page and set the link to "Active"-->
+    {% if data.page == page_num %}
+    <a href="{{ url_for('display', page=page_num) }}" class="btn btn-dark">
+        {{ page_num }}
+    </a>
+    {% else %}
+    <a href="{{ url_for('display', page=page_num) }}" class="btn btn-outline-dark">
+        {{ page_num }}
+    </a>
+    {% endif %}
+    {% else %}
+    ...
+    {% endif %}
+    {% endfor %}
+    <a href="{{ url_for('display', page=data.next_num) }}" class="btn btn-outline-dark 
+   {% if data.page == data.pages %}disabled{% endif %}">
+        &raquo;
+    </a>
+</div>
+<p class="text-right mt-3">
+    Showing page {{ data.page }} of {{ data.pages }}
+</p>
+{% endblock %}
