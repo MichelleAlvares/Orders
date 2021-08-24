@@ -4,7 +4,7 @@ import unittest
 import pandas as pd
 
 dict = {'Region':['*rr(', 'Middle East and North Africa','Vietnam&', 'Europe', "'Europe"],
-'Country':['Haiti', 'Nicaragua','Turkmenistan','United Kingdom','United Kingdom'],'Item Type':['Fruits','ûther','Electronics', 'Appliance','Miscellaneous'],
+'Country':['Haiti', 'Nicaragua','Turkmenistan','United Kingdom','United Kingdom'],'Item Type':['Fruits','other','Electronics', 'Appliance','Miscellaneous'],
 'Sales Channel':['Online', 'Offline', 'POS', 'Online', 'Online'],
 'Order Priority':['Z','M','L','C','C'],'Order Date':['30/13/2020','12/14/2020','9/31/2017','9/7/2018','9/7/2018'],'Order ID':[112222,3333333,444444,555555,765656],
 'Ship Date':['11/12/2020','11/14/2020','9/2/2017','9/7/2018','11/14/2020'],
