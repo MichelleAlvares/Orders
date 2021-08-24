@@ -1,6 +1,14 @@
 Virtual environemnt setup
 close the project and cd into the project directory
+cd Orders
 
+Now you are ready to start the docker container:
+RUN
+docker-compose up
+
+Open your browser and enter the url - http://localhost:8000
+
+Now to run the test cases:
 Run the below commands to activate the virtual env or Flask framework
 
 ---
@@ -17,9 +25,4 @@ Windows:
 
 ---
 
-Now you are ready to start the docker container:
-RUN
-docker-compose up
-
-Open your browser and enter the url - http://localhost:8000
---_The End_--
+python test.py
