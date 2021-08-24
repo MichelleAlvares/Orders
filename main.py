@@ -18,10 +18,6 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
   
 
-onlyLetters = '^[a-zA-Z -]+$'
-orderPriorityList = ['M', 'H', 'L', 'C']
-salesChannels = ['Online', 'Offline']
-
 # Root URL
 @app.route('/')
 def index():
