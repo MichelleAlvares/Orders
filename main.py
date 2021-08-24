@@ -10,13 +10,13 @@ app = Flask(__name__)
 # enable debugging mode
 app.config["DEBUG"] = True
 
-UPLOAD_FOLDER = 'static/files'
+UPLOAD_FOLDER = 'file'
 app.config['UPLOAD_FOLDER'] =  UPLOAD_FOLDER
 app.config['UPLOAD_FILE'] =  'orders.csv'
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:my_password@orders_db_1/postgres'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
-db.create_all()    
+  
 
 onlyLetters = '^[a-zA-Z -]+$'
 orderPriorityList = ['M', 'H', 'L', 'C']
@@ -25,6 +25,7 @@ salesChannels = ['Online', 'Offline']
 # Root URL
 @app.route('/')
 def index():
+    db.create_all()  
     return render_template('index.html')
 
 
