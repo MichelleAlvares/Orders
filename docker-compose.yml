@@ -14,7 +14,7 @@ services:
     image: "postgres:13"
     environment:
       POSTGRES_DB: postgres
-      POSTGRES_HOST: flask_db_1
+      POSTGRES_HOST: orders_db_1
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: my_password
     volumes:

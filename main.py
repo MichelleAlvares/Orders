@@ -13,8 +13,7 @@ app.config["DEBUG"] = True
 UPLOAD_FOLDER = 'static/files'
 app.config['UPLOAD_FOLDER'] =  UPLOAD_FOLDER
 app.config['UPLOAD_FILE'] =  'orders.csv'
-#app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///Orders.db'
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:my_password@flask_db_1/postgres'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:my_password@orders_db_1/postgres'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 db.create_all()    
